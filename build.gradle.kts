@@ -14,6 +14,7 @@ plugins {
     alias(libs.plugins.dokka)
     alias(libs.plugins.atomicfu) apply false
     alias(libs.plugins.validator)
+    id("maven-publish")
 }
 
 tasks.dokkaHtmlMultiModule.configure {
@@ -33,6 +34,18 @@ allprojects {
             showExceptions = true
             showStackTraces = true
             showCauses = true
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("kable") {
+                groupId = "com.github.IMArTyNO" //your git id
+                artifactId = "kable" //your-repository
+                version = "0.20.1" // As same as the Tag
+            }
         }
     }
 }
