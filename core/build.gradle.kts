@@ -20,9 +20,7 @@ plugins {
 kotlin {
     explicitApi()
 
-    android {
-        publishAllLibraryVariants()
-    }
+    android ()
     js().browser()
     iosX64()
     macosArm64()
